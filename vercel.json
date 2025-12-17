@@ -1,32 +1,13 @@
 {
   "version": 2,
-  "public": false,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "devCommand": "npm run dev",
-  "env": [
-    {
-      "key": "NODE_ENV",
-      "value": "production"
-    }
-  ],
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/next"
     }
   ],
-  "routes": [
-    {
-      "src": "^(?!.*\\.).*$",
-      "dest": "/index.html"
-    }
-  ],
-  "functions": {
-    "api/**/*.ts": {
-      "memory": 1024,
-      "maxDuration": 30
-    }
+  "env": {
+    "NODE_ENV": "production"
   },
   "git": {
     "deploymentEnabled": true
